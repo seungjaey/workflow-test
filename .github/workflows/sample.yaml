@@ -19,7 +19,7 @@ jobs:
           node-version: 18.16.0
 
       - name: test migrated workflow
-        uses: seungjaey/actions-rancher-deploy@main
+        uses: seungjaey/actions-rancher-deploy@v1.0.0
         with:
           rancher_url: https://rancher.dev.kurly.services
           rancher_access: ${{secrets.RANCHER_ACCESS}}
