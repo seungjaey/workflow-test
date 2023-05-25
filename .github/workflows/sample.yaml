@@ -35,7 +35,7 @@ jobs:
             [선물주문 취소]__SEP__/mypage/gift/cancel?orderNo=2278011230005
 
       - name: test migrated workflow
-        uses: seungjaey/actions-rancher-deploy@v1.0.0
+        uses: seungjaey/actions-rancher-deploy@v1
         with:
           rancher_url: https://rancher.dev.kurly.services
           rancher_access: ${{secrets.RANCHER_ACCESS}}
