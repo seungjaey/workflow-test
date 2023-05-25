@@ -1,0 +1,23 @@
+name: sample
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-to-rancher:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image-name: [kurlymall-nx]
+        node-version: [14.16.1]
+    steps:
+      - uses: seungjaey/actions-rancher-deploy@v0.0.1
+        with:
+          rancher_url: https://rancher.dev.kurly.services
+          rancher_access: ${{secrets.RANCHER_ACCESS}}
+          rancher_key: ${{secrets.RANCHER_KEY}}
+          project_id: 1a5
+          stack_name: qa2-www-nx
+          service_name: ${{matrix.image-name}}
+          docker_image: ${{secrets.HARBOR_REGISTRY_URL}}:stg-${{secrets.SHA_SHORT}}
