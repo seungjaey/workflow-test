@@ -7,9 +7,6 @@ on:
 jobs:
   deploy-to-rancher:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        image-name: [kurlymall-nx]
 
     steps:
       - name: Setup Node.js Version - 18.16.0
@@ -33,3 +30,14 @@ jobs:
             [선물내역]__SEP__/mypage/gift
             [선물내역 상세]__SEP__/mypage/gift/detail?orderNo=2278011230005
             [선물주문 취소]__SEP__/mypage/gift/cancel?orderNo=2278011230005
+
+      - name: test
+        uses: seungjaey/actions-rancher-deploy@v1
+        with:
+          rancher_url: https://rancher.dev.kurly.services
+          rancher_access: ${{secrets.RANCHER_ACCESS}}
+          rancher_key: ${{secrets.RANCHER_KEY}}
+          project_id: 1a5
+          stack_name: qa2-www-nx
+          service_name: kurlymall-nx
+          docker_image: ${{secrets.HARBOR_REGISTRY_URL}}:stg-${{secrets.SHA_SHORT}}
