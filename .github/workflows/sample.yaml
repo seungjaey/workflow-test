@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  deploy-to-rancher:
+  deploy-to-rancher2:
     runs-on: ubuntu-latest
 
     steps:
