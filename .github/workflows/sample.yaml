@@ -16,7 +16,7 @@ jobs:
 
 
       - name: worflow test
-        uses: seungjaey/actions-rancher-deploy@v1.0.2
+        uses: seungjaey/actions-rancher-deploy@v1.0.3
         with:
           rancher_url: https://rancher.dev.kurly.services
           rancher_access: ${{secrets.RANCHER_ACCESS}}
